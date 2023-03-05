@@ -133,6 +133,8 @@ function PSUploadFile()
 
         local CONTENTRANGEHEADER="Content-Range: bytes $I1-$I2/$LENGTH"
 
+echo $CONTENTRANGEHEADER 1>&2
+
         dd skip=$I1 count=$I3 if=$CONTENT_PATH of=content.bin iflag=skip_bytes,count_bytes status=none
 
         local RESPONSE=$(echo -n '[' && curl -X PUT -H "$CONTENTRANGEHEADER" -H "Content-Type: application/octet-stream" --data-binary "@content.bin" -w ',%{json}]' -s $URL)
