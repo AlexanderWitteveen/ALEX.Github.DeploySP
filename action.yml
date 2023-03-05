@@ -1,0 +1,46 @@
+# action.yml
+name: 'Upload Github'
+description: 'Upload a file to Github'
+inputs:
+  tenant_id:
+    description: 'tenant id for azure/sharepoint'
+    required: true
+    default: '** TENANT_ID_MISSING **'
+  client_id:
+    description: 'client id for azure/sharepoint'
+    required: true
+    default: '** CLIENT_ID_MISSING **'
+  client_secret:
+    description: 'client secret for azure/sharepoint'
+    required: true
+    default: '** CLIENT_SECRET_MISSING **'
+  host:
+    description: 'host of sharepoint'
+    required: true
+    default: '** HOST_MISSING **'
+  site:
+    description: 'site for sharepoint'
+    required: false
+    default: '** SITE_MISSING **'
+  drive:
+    description: 'drive for sharepoint'
+    required: true
+    default: '** DRIVE_MISSING **'
+  folder:
+    description: 'folder for sharepoint'
+    required: true
+    default: '** FOLDER_MISSING **'
+  file_source:
+    description: 'file path source'
+    required: true
+    default: '** FILE_SOURCE_MISSING **'
+  file_target:
+    description: 'file name for sharepoint'
+    required: true
+    default: '** FILE_TARGET_MISSING **'
+outputs:
+  web_url:
+    description: 'The url of the uploaded file'
+runs:
+  using: 'docker'
+  image: 'dockerfile'
